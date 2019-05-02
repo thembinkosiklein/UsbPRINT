@@ -26,24 +26,31 @@ public class UsbPRINT extends CordovaPlugin implements Activity {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         boolean valid = false;
         if (action.equalsIgnoreCase("print")) {
-            this.print(args.optJSONObject(0), callbackContext);
+            this.print(args.optString(0), callbackContext);
             return true;
         }
         return valid;
     }
 
     /**
-     * Sends the provided content to the printing controller and opens them.
-     * * @param content The content or file to print.
+     * Sends the provided content to the printing controller.
      * 
-     * @param settings Additional settings how to render the content.
+     * @param content  The content or file to print.
      * @param callback The plugin function to invoke with the result.
      */
-    private void print(@Nullable String content, CallbackContext callbackContext) {
-        if (isLAN) {
-            PrinterFunctionsLAN.PrintSampleReceipt(portName, portSettings);
+    private void print(@Nullable String content, CallbackContext callback) {
+        if (content != null) {
+            try {
+                if (isLAN) {
+                    PrinterFunctionsLAN.PrintSampleReceipt(portName, portSettings);
+                } else {
+                    PrinterFunctions.PrintSampleReceipt(portName, portSettings);
+                }
+            } catch (Exception ex) {
+                callback.error("An unexpected error occurred: " + ex);
+            }
         } else {
-            PrinterFunctions.PrintSampleReceipt(portName, portSettings);
+            callback.error("Content cannot be null.");
         }
     }
 }
