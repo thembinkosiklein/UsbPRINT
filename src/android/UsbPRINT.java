@@ -17,8 +17,7 @@ import android.content.SharedPreferences.Editor;
 import android.view.View;
 import android.widget.Spinner;
 
-public class UsbPRINT extends CordovaPlugin implements Activity {
-    public static boolean isLAN = false;
+public class UsbPRINT extends CordovaPlugin {
     public static String portName = "USB:";
     public static int portSettings = 0;
 
@@ -38,14 +37,10 @@ public class UsbPRINT extends CordovaPlugin implements Activity {
      * @param content  The content or file to print.
      * @param callback The plugin function to invoke with the result.
      */
-    private void print(@Nullable String content, CallbackContext callback) {
+    private void print(String content, CallbackContext callback) {
         if (content != null) {
             try {
-                if (isLAN) {
-                    PrinterFunctionsLAN.PrintSampleReceipt(portName, portSettings);
-                } else {
-                    PrinterFunctions.PrintSampleReceipt(portName, portSettings);
-                }
+                PrinterFunctions.PrintSampleReceipt(portName, portSettings);
             } catch (Exception ex) {
                 callback.error("An unexpected error occurred: " + ex);
             }
