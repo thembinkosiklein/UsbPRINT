@@ -26,7 +26,7 @@
 
         <!-- <config-file parent="/*" target="AndroidManifest.xml" /> -->
         <source-file src="src/android/UsbPRINT.java" target-dir="src/cordova/plugin/usbprint/UsbPRINT" />
-        <source-file src="src/android/PrinterFunctions.java" target-dir="libs" />
+        <source-file src="src/android/PrinterFunctions.java" target-dir="src/cordova/plugin/usbprint" />
         
     </platform>
 
