@@ -40,7 +40,8 @@ public class UsbPRINT extends CordovaPlugin {
     private void print(String content, CallbackContext callback) {
         if (content != null) {
             try {
-                PrinterFunctions.PrintSampleReceipt(portName, portSettings);
+                PrinterFunctions pf = new PrinterFunctions();
+                pf.PrintSampleReceipt(portName, portSettings);
             } catch (Exception ex) {
                 callback.error("An unexpected error occurred: " + ex);
             }
