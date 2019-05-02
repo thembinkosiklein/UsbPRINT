@@ -1,0 +1,25 @@
+{
+  "name": "UsbPRINT",
+  "version": "1.0.0",
+  "description": "POS printer plugin using cordova",
+  "cordova": {
+    "id": "cordova-plugin-usbprint",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thembinkosiklein/UsbPRINT.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Thembinkosi Klein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thembinkosiklein/UsbPRINT/issues"
+  },
+  "homepage": "https://github.com/thembinkosiklein/UsbPRINT#readme"
+}
