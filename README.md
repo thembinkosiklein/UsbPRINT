@@ -1,9 +1,9 @@
 # UsbPRINT
 A Cordova plugin which one can print content on the selected pos printer for Android.
 
-#Usage
+## Usage
 You can print/send data to the pos printer:
 
 
-#Install Cordova
+## Install Cordova
 cordova plugin add https://github.com/thembinkosiklein/UsbPRINT.git
