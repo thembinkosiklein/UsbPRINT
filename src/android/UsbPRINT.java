@@ -19,7 +19,7 @@ import android.widget.Spinner;
 
 public class UsbPRINT extends CordovaPlugin implements Activity {
     public static boolean isLAN = false;
-    public static String portName = "USB";
+    public static String portName = "USB:";
     public static int portSettings = 0;
 
     @Override
