@@ -8,8 +8,8 @@
     <name>UsbPRINT</name>
 
     <engines>
-    
-     </engines>
+        <engine name="cordova" version=">=8.0.0"/>
+    </engines>
 
     <js-module name="UsbPRINT" src="www/UsbPRINT.js">
         <clobbers target="cordova.plugins.UsbPRINT" />
@@ -24,10 +24,11 @@
             </feature>
         </config-file>
 
-        <config-file parent="/*" target="AndroidManifest.xml" />
+        <!-- <config-file parent="/*" target="AndroidManifest.xml" /> -->
         <source-file src="src/android/UsbPRINT.java" target-dir="src/cordova/plugin/usbprint/UsbPRINT" />
         <source-file src="src/android/PrinterFunctions.java" target-dir="libs" />
         <source-file src="src/android/PrinterFunctionsLAN.java" target-dir="libs" />
-
+        
     </platform>
+
 </plugin>
