@@ -17,6 +17,8 @@ import android.content.SharedPreferences.Editor;
 import android.view.View;
 import android.widget.Spinner;
 
+import android.util.Log;
+
 public class UsbPRINT extends CordovaPlugin {
     public static String portName = "USB:";
     public static int portSettings = 0;
@@ -40,8 +42,8 @@ public class UsbPRINT extends CordovaPlugin {
     private void print(String content, CallbackContext callback) {
         if (content != null) {
             try {
-                PrinterFunctions pf = new PrinterFunctions();
-                pf.PrintSampleReceipt(portName, portSettings);
+                // PrinterFunctions pf = new PrinterFunctions();
+                PrintSampleReceipt(portName, portSettings);
             } catch (Exception ex) {
                 callback.error("An unexpected error occurred: " + ex);
             }
@@ -49,4 +51,6 @@ public class UsbPRINT extends CordovaPlugin {
             callback.error("Content cannot be null.");
         }
     }
+
+    public static native int PrintSampleReceipt(String portName, int portSettings);
 }
