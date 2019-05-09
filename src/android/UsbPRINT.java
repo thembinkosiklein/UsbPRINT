@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import JOptionPane.showMessageDialog;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -42,7 +44,7 @@ public class UsbPRINT extends CordovaPlugin {
     private void print(String content, CallbackContext callback) {
         if (content != null) {
             try {
-                // PrinterFunctions pf = new PrinterFunctions();
+                showMessageDialog(null, "suposed to print sample receipt after this");
                 PrintSampleReceipt(portName, portSettings);
             } catch (Exception ex) {
                 callback.error("An unexpected error occurred: " + ex);
@@ -52,5 +54,27 @@ public class UsbPRINT extends CordovaPlugin {
         }
     }
 
+    /**
+     * Sends the provided content to the printing controller.
+     * 
+     * @param content  The content or file to print.
+     * @param callback The plugin function to invoke with the result.
+     */
+    private void printSampleText(String content, CallbackContext callback) {
+        if (content != null) {
+            try {
+                PrintText(portName, portSettings, 0, 0, 0, 0, 0, 0, 0, 0, "sample text");
+            } catch (Exception ex) {
+                callback.error("An unexpected error occurred: " + ex);
+            }
+        } else {
+            callback.error("Content cannot be null.");
+        }
+    }
+
     public static native int PrintSampleReceipt(String portName, int portSettings);
+
+    public static native int PrintText(String portName, int portSettings, int underline, int invertColor,
+            int emphasized, int upsideDown, int heightExpansion, int widthExpansion, int leftMargin, int alignment,
+            String textData);
 }
