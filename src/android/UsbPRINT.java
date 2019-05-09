@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import JOptionPane.showMessageDialog;
+import javax.swing.JOptionPane;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -44,7 +44,7 @@ public class UsbPRINT extends CordovaPlugin {
     private void print(String content, CallbackContext callback) {
         if (content != null) {
             try {
-                showMessageDialog(null, "suposed to print sample receipt after this");
+                JOptionPane.showMessageDialog(null, "suposed to print sample receipt after this");
                 PrintSampleReceipt(portName, portSettings);
             } catch (Exception ex) {
                 callback.error("An unexpected error occurred: " + ex);
