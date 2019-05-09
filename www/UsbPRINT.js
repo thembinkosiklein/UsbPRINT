@@ -8,5 +8,6 @@ var exec = require('cordova/exec');
  * @param [ Function ] error    The success callback function.
  */
 exports.print = function (content, success, error) {
+    alert('js here, but java below');
     exec(success, error, "UsbPRINT", "print", [content || '']);
 };
